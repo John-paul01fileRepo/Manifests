@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joetechdep
+spec:
+  selector:
+    matchLabels:
+      app: joetechapp
+  template:
+    metadata:
+      labels:
+        app: joetechapp
+    spec:
+      containers:
+      - name: joetechcon
+        image: jeaggrey/joetech:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
