@@ -21,7 +21,8 @@ node {
                         //  sh "git push https://${GIT_USERNAME}@github.com/${GIT_USERNAME}/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}@github.com/JoetechDev/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git HEAD:main"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git"
+                        // sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git"
+                        sh "git push origin main"
       }
     }
   }
