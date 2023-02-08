@@ -2,7 +2,7 @@ node {
     def app
 
     stage('Clone repository') {
-      git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/JoetechDev/Manifests'
+      git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/jeaggrey/Manifests'
     }
 
     stage('Update GIT') {
@@ -21,8 +21,8 @@ node {
                         //  sh "git push https://${GIT_USERNAME}@github.com/${GIT_USERNAME}/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}@github.com/JoetechDev/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git HEAD:main"
-                        // sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git"
-                        sh "git push 'https://github.com/JoetechDev/Manifests' "
+                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/jeaggrey/Manifests.git"
+                        
       }
     }
   }
