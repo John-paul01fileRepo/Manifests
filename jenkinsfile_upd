@@ -2,17 +2,17 @@ node {
     def app
 
     stage('Clone repository') {
-      // git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/JoetechDev/Manifests'
+       git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/JoetechDev/Manifests'
 
-       checkout scm
+    
     }
 
     stage('Update GIT') {
 
 
             script {
-                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                     withCredentials([usernamePassword(credentialsId: 'GithubCred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                
+                    //  withCredentials([usernamePassword(credentialsId: 'GithubCred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email jeaggrey.com"
                         sh "git config user.name jeaggrey"
@@ -22,8 +22,9 @@ node {
                         sh "cat Deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://github.com/JoetechDev/Manifests.git"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git HEAD:main"
+                        // sh "git push https://github.com/JoetechDev/Manifests.git"
+                         withCredentials([usernamePassword(credentialsId: 'GithubCred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git main"
                           // sh "git push https://${GIT_USERNAME}@github.com/${GIT_USERNAME}/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}@github.com/JoetechDev/Manifests.git HEAD:main"
                         // sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/JoetechDev/Manifests.git HEAD:main"
@@ -34,4 +35,3 @@ node {
     }
   }
  }
-}
