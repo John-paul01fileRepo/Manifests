@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: joetechcon
-        image: jeaggrey/joetech:8
+        image: jeaggrey/joetech:9
         # resources:
         #   limits:
         #     memory: "128Mi"
