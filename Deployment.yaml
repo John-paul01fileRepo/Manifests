@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: joetechdep
+  name: johntechdep
 spec:
   selector:
     matchLabels:
-      app: joetechapp
+      app: johntechapp
   template:
     metadata:
       labels:
-        app: joetechapp
+        app: johntechapp
     spec:
       containers:
-      - name: joetechcon
-        image: jeaggrey/joetech:22
+      - name: johntechcont
+        image: henry5/johntech-webapp:1
         # resources:
         #   limits:
         #     memory: "128Mi"
