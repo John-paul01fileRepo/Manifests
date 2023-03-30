@@ -15,8 +15,8 @@ node {
                     //  withCredentials([usernamePassword(credentialsId: 'GithubCred', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         //I did not require the above two lines as i had passed credentials in clone stage 
-                        sh "git config user.email jeaggrey.com"        //replace with your email for git
-                        sh "git config user.name jeaggrey"            //replace with ypur git username git
+                        sh "git config user.email ifeanyibenard2@gmail.com"        //replace with your email for git
+                        sh "git config user.name landmarkC30testing"            //replace with ypur git username git
                         sh "git switch main"                         //ensure we are working in main branch or any other branch required for this build 
                         sh "cat Deployment.yaml"                     //not required just shows previous state of file before update 
                         sh "sed -i 's+henry5/johntech-webapp.*+henry5/johntech-webapp:${DOCKERTAG}+g' Deployment.yaml" //sed command used to replace  dockertag in deploymentfie
